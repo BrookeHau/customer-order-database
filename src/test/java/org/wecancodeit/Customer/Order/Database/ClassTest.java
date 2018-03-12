@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class ClassTest {
 
-	private Customer customer = new Customer("FName", "LName", 2248, "Club Road", "Columbus", "OH", 43221);
+	private Customer customer = new Customer("FName", "LName", 280, "Club Road", "Columbus", "OH", 43210);
 
 	@Test
 	public void getProductInfo() {
@@ -43,7 +43,7 @@ public class ClassTest {
 	@Test 
 	public void customerAddressInfo() {
 		String check = customer.getAddress();
-		assertThat(check , is("2248 Club Road Columbus OH 43221"));
+		assertThat(check , is("280 Club Road Columbus OH 43210"));
 		
 	}
 
