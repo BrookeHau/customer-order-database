@@ -10,12 +10,9 @@
 	<header>
 		<h1>A List of Orders</h1>
 	</header>
-
-	<div th:each="order: ${orders}">
-		<ul>
-			<li><a th:href="@{/order(id=${order.id})}" th:text="${order.customer}"></a></li>
-		</ul>
-	</div>
-	
+	<ul th:each="order: ${orders}">
+		<li><a th:href="@{/order(id=${order.orderId})}"
+			th:text="'Customers: ' + ${order.customer.fullName}"></a></li>
+	</ul>
 </body>
 </html>
