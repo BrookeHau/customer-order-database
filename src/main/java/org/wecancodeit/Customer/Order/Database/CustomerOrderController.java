@@ -27,7 +27,9 @@ public class CustomerOrderController {
 
 	@RequestMapping("/customer")
 	public String findCustomer(@RequestParam Long id, Model model) {
-		model.addAttribute("customers", customerRepo.findOne(id));
+		Customer customer = customerRepo.findOne(id);
+		model.addAttribute("customer", customer);
+		model.addAttribute("customers", customerRepo.findByCustomerId(customer));
 		return "customer";
 	}
 }

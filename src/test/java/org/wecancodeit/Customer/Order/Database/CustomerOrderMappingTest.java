@@ -121,5 +121,22 @@ public class CustomerOrderMappingTest {
 		order = orderRepo.findOne(orderId);
 		assertThat(order.getCustomer().getFullName(), is("FName LName"));
 	}
+	
+	@Test
+	public void getOrderTotalPrice() {
+		Customer customer = new Customer("FName", "LName", 2248, "Club Road", "Columbus", "OH", 43221);
+		customer = custRepo.save(customer);
+		Product product = new Product("Name", 125.00, 120.00, "A5");
+		product = prodRepo.save(product);
+		CustomerOrder order = new CustomerOrder("09/21/17", customer, product);
+		order = orderRepo.save(order);
+		long orderId = order.getOrderId();
+
+		entityManager.flush();
+		entityManager.clear();
+
+		order = orderRepo.findOne(orderId);
+		assertThat(order.getTotalOrderPrice(), is(125.00));
+	}
 
 }

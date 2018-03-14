@@ -41,6 +41,14 @@ public class CustomerOrder {
 	public Collection<Product> getProducts() {
 		return products;
 	}
+	
+	public double getTotalOrderPrice() {
+		double totalPrice = 0;
+		for(Product product: products) {
+			totalPrice += product.getProductPrice();
+		} return totalPrice;
+	}
+	
 
 	// methods to get Order Info
 	public String getOrderDate() {
