@@ -12,7 +12,7 @@
 	</header>
 	<ul th:each="order: ${orders}">
 		<li><a th:href="@{/order(id=${order.orderId})}"
-			th:text="'Customer Ids: ' + ${order.orderId} + "></a></li>
+			th:text="'Customer Ids: ' + ${order.orderId} + ' Total Price: $' + ${order.totalOrderPrice}"></a></li>
 	</ul>
 </body>
 </html>

@@ -49,6 +49,13 @@ public class CustomerOrder {
 		} return totalPrice;
 	}
 	
+	public double getTotalOrderCost() {
+		double totalCost = 0;
+		for(Product product: products) {
+			totalCost += product.getProductCost();
+		} return totalCost;
+	}
+	
 
 	// methods to get Order Info
 	public String getOrderDate() {
