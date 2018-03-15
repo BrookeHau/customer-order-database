@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="./css/home.css"/>
 <head>
 
-<title>A list of Orders</title>
+<title>Customer Details</title>
 </head>
 
 <body>
@@ -12,7 +12,8 @@
 		<h1>Customer Details</h1>
 	</header>
 	<ul>
-		<li th:text="'Name: ' + ${customer.fullName} + ' Address: ' + ${customer.address}"></li>
+		<li th:text="'Name: ' + ${customer.fullName}"></li>
+		<li th:text="'Address: ' + ${customer.address}"></li>
 	</ul>
 <a href="customerorders.html">Home</a>
 </body>

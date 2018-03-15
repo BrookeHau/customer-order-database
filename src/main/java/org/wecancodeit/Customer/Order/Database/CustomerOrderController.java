@@ -31,10 +31,30 @@ public class CustomerOrderController {
 		model.addAttribute("order", orderRepo.findOne(id));
 		return "orderdetail";
 	}
-	
+
 	@RequestMapping("/customer")
 	public String getACustomer(@RequestParam Long id, Model model) {
 		model.addAttribute("customer", customerRepo.findOne(id));
 		return "customer";
 	}
+
+	@RequestMapping("/add-customerorder")
+	public String addCourse(String customerFirstName, String customerLastName, int streetNumber, String streetName,
+			String cityName, String stateName, int zipCode, String productName) {
+		Product product = productRepo.findByProductName(productName);
+		Customer newCustomer = new Customer(customerFirstName, customerLastName, streetNumber, streetName, cityName,
+				stateName, zipCode);
+		newCustomer = customerRepo.save(newCustomer);
+		double productPrice = product.getProductPrice();
+		double productCost = product.getProductCost();
+		String productLocation = product.getProductLocation();
+		if (!(product == null)) {
+			Product newProduct = new Product(productName, productPrice, productCost, productLocation);
+			newProduct = productRepo.save(newProduct);
+			CustomerOrder newCustomerOrder = new CustomerOrder("11/11/11", newCustomer, newProduct);
+			newCustomerOrder = orderRepo.save(newCustomerOrder);
+		}
+		return "redirect:/customerorders";
+	}
+
 }

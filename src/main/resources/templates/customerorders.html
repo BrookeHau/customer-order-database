@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="./css/home.css"/>
+<link rel="stylesheet" href="./css/home.css" />
 <head>
 <title>A list of Orders</title>
 </head>
@@ -14,5 +14,34 @@
 		<li><a th:href="@{/orderdetail(id=${order.orderId})}"
 			th:text="'Order Id: ' + ${order.orderId} + ' Total Price: $' + ${order.totalOrderPrice}"></a></li>
 	</ul>
+	<form method="POST">
+		<div>
+			<label>Enter Your First Name</label> <input type="text" name="customerFirstName" />
+		</div>
+		<div>
+			<label>Enter Your Last Name</label> <input type="text" name="customerLastName" />
+		</div>
+		<div>
+			<label>Enter Your Street Number</label> <input type="text" name="streetNumber" />
+		</div>
+		<div>
+			<label>Enter Your Street Name</label> <input type="text" name="streetName" />
+		</div>
+		<div>
+			<label>Enter Your City</label> <input type="text" name="cityName" />
+		</div>
+		<div>
+			<label>Enter Your State</label> <input type="text" name="stateName" />
+		</div>
+		<div>
+			<label>Enter Your Zipcode</label> <input type="text" name="zipCode" />
+		</div>
+		<div>
+			<label>Enter the Product Name</label> <input type="text" name="productName" />
+		</div>
+		<div>
+		<button th:formaction="@{/add-customerorder}">Place Order</button>
+		</div>
+	</form>
 </body>
 </html>
