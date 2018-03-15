@@ -1,17 +1,19 @@
 <!DOCTYPE HTML>
 
 <html xmlns:th="http://www.thymeleaf.org">
-
+<link rel="stylesheet" href="./css/home.css"/>
 <head>
+
 <title>A list of Orders</title>
 </head>
 
-<body th:each="customer: ${customers}">
+<body>
 	<header>
 		<h1>Customer Details</h1>
 	</header>
 	<ul>
-		<li th:text="'Name: ' + ${customer.fullName} + 'Address' + ${customer.address}"></li>
+		<li th:text="'Name: ' + ${customer.fullName} + ' Address: ' + ${customer.address}"></li>
 	</ul>
+<a href="customerorders.html">Home</a>
 </body>
 </html>

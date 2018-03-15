@@ -32,4 +32,9 @@ public class CustomerOrderController {
 		return "orderdetail";
 	}
 	
+	@RequestMapping("/customer")
+	public String getACustomer(@RequestParam Long id, Model model) {
+		model.addAttribute("customer", customerRepo.findOne(id));
+		return "customer";
+	}
 }
