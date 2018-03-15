@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Order Detail</title>
+</head>
+<body>
+<div id= "container">
+<header>
+<h1>Order Details</h1>
+</header>
+<main>
+<p th:text="'Customer: ' + ${order.customer.fullName}"></p>
+<ul th:each= "product : ${order.products}" >
+<li th:text=" 'Product Name: ' + ${product.productName} + 
+'; Price: ' + ${product.productPrice} + '; Cost: ' + 
+${product.productCost}"></li>
+</ul>
+</main>
+</div>
+<script src="./js/reviewsiteapp.js"></script>
+</body>
+</html>

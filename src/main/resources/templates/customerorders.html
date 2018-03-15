@@ -11,8 +11,8 @@
 		<h1>A List of Orders</h1>
 	</header>
 	<ul th:each="order: ${orders}">
-		<li><a th:href="@{/order(id=${order.orderId})}"
-			th:text="'Customer Ids: ' + ${order.orderId} + ' Total Price: $' + ${order.totalOrderPrice}"></a></li>
+		<li><a th:href="@{/orderdetail(id=${order.orderId})}"
+			th:text="'Order Id: ' + ${order.orderId} + ' Total Price: $' + ${order.totalOrderPrice}"></a></li>
 	</ul>
 </body>
 </html>

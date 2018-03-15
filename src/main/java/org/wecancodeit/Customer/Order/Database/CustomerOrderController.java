@@ -22,14 +22,14 @@ public class CustomerOrderController {
 	@RequestMapping("/customerorders")
 	public String findAllOrders(Model model) {
 		model.addAttribute("orders", orderRepo.findAll());
+		model.addAttribute("products", productRepo.findAll());
 		return "customerorders";
 	}
 
-	@RequestMapping("/customer")
-	public String findCustomer(@RequestParam Long id, Model model) {
-		Customer customer = customerRepo.findOne(id);
-		model.addAttribute("customer", customer);
-		model.addAttribute("customers", customerRepo.findByCustomerId(customer));
-		return "customer";
+	@RequestMapping("/orderdetail")
+	public String getAnOrder(@RequestParam Long id, Model model) {
+		model.addAttribute("order", orderRepo.findOne(id));
+		return "orderdetail";
 	}
+	
 }
