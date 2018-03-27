@@ -37,7 +37,15 @@
 			<label>Enter Your Zipcode</label> <input type="text" name="zipCode" />
 		</div>
 		<div>
-			<label>Enter the Product Name</label> <input type="text" name="productName" />
+		<p>Product:</p>
+		<select>
+		<option th:each="product: ${products}" 
+		th:value="${product}" 
+		th:text="${product.productName}">
+		<input name="productName"/>
+		</option>
+		</select>
+			<!-- <label>Enter the Product Name</label> <input type="text" name="productName" /> -->
 		</div>
 		<div>
 		<button th:formaction="@{/add-customerorder}">Place Order</button>

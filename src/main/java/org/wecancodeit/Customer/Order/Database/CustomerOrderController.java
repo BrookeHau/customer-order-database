@@ -39,7 +39,7 @@ public class CustomerOrderController {
 	}
 
 	@RequestMapping("/add-customerorder")
-	public String addCourse(String customerFirstName, String customerLastName, int streetNumber, String streetName,
+	public String addOrder(String customerFirstName, String customerLastName, int streetNumber, String streetName,
 			String cityName, String stateName, int zipCode, String productName) {
 		Product product = productRepo.findByProductName(productName);
 		Customer newCustomer = new Customer(customerFirstName, customerLastName, streetNumber, streetName, cityName,
